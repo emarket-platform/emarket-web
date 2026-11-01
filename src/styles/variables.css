@@ -1,0 +1,21 @@
+:root {
+    font-family: Inter, Arial, sans-serif;
+
+    --color-primary: #5267d8;
+    --color-background: #ffffff;
+    --color-surface: #f5f6fa;
+    --color-text: #202333;
+    --color-border: #e3e5ed;
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+}
+
+[data-theme='dark'] {
+    --color-primary: #8798ff;
+    --color-background: #171923;
+    --color-surface: #222634;
+    --color-text: #f3f4f8;
+    --color-border: #363c4e;
+}
