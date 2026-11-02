@@ -1,0 +1,13 @@
+{
+  "app": {
+    "name": "eMarket",
+    "welcome": "Добро пожаловать в eMarket"
+  },
+  "navigation": {
+    "home": "Главная",
+    "catalog": "Каталог",
+    "login": "Войти",
+    "register": "Регистрация",
+    "profile": "Профиль"
+  }
+}
