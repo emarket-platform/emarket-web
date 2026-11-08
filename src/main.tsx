@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { App } from './App';
-import { AppProviders } from './providers/AppProviders';
+import { App } from './app/App.tsx';
+import { AppProviders } from './app/providers/AppProviders.tsx';
 
-import './styles/app.scss';
+import './app/styles/app.scss';
 
 ReactDOM.createRoot(
     document.getElementById('root')!,
