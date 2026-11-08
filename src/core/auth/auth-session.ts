@@ -20,11 +20,7 @@ interface AuthSessionState {
     setStatus: (status: AuthStatus) => void;
 }
 
-
-// Чтобы сейчас проверить маршрутизацию, временно установи.
-// Чтобы проверить Authenticated-маршруты, временно установи: status: 'authenticated',
-// Не оставляй такой вариант в production.
-// После реализации useCurrentUser состояние должно определяться результатом проверки сессии через BFF.
+// После реализации useCurrentUser.ts состояние должно определяться результатом проверки сессии через BFF.
 /*-
     При status: 'unauthenticated'
     URL	Ожидаемый результат:
@@ -55,6 +51,8 @@ interface AuthSessionState {
     /unknown	NotFoundPage
  */
 export const useAuthSession = create<AuthSessionState>((set) => ({
+    // Это правильное поведение для полноценного приложения,
+    // но пока мы не реализовали API авторизации, страницы будут показывать Loading....
     status: 'checking',
 
     setStatus: (status) => set({ status }),
