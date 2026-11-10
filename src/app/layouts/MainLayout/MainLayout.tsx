@@ -24,23 +24,23 @@ import styles from './MainLayout.module.scss';
 */
 const appName = import.meta.env.VITE_APP_NAME;
 export function MainLayout() {
-    return (
-        <div className={styles.layout}>
-            <header className={styles.header}>
-                <div className={styles.container}>
-                    <span>{appName}</span>
-                </div>
-            </header>
-
-            <main className={styles.main}>
-                <Outlet />
-            </main>
-
-            <footer className={styles.footer}>
-                <div className={styles.container}>
-                    <span>© {appName}</span>
-                </div>
-            </footer>
+  return (
+    <div className={styles.layout}>
+      <header className={styles.header}>
+        <div className={styles.container}>
+          <span>{appName}</span>
         </div>
-    );
+      </header>
+
+      <main className={styles.main}>
+        <Outlet />
+      </main>
+
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <span>© {appName}</span>
+        </div>
+      </footer>
+    </div>
+  );
 }

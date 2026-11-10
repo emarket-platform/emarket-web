@@ -1,3 +1,3 @@
 export function ProfilePage() {
-    return <h1>Profile</h1>;
+  return <h1>Profile</h1>;
 }

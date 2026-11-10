@@ -10,14 +10,14 @@ import { create } from 'zustand';
     GET /api/v1/web/auth/me
  */
 export type AuthStatus =
-    | 'checking' // Проверяем текущую пользовательскую сессию
-    | 'authenticated' // Пользователь авторизован
-    | 'unauthenticated'; // Пользователь не авторизован
+  | 'checking' // Проверяем текущую пользовательскую сессию
+  | 'authenticated' // Пользователь авторизован
+  | 'unauthenticated'; // Пользователь не авторизован
 
 interface AuthSessionState {
-    status: AuthStatus;
+  status: AuthStatus;
 
-    setStatus: (status: AuthStatus) => void;
+  setStatus: (status: AuthStatus) => void;
 }
 
 // После реализации useCurrentUser.ts состояние должно определяться результатом проверки сессии через BFF.
@@ -51,9 +51,9 @@ interface AuthSessionState {
     /unknown	NotFoundPage
  */
 export const useAuthSession = create<AuthSessionState>((set) => ({
-    // Это правильное поведение для полноценного приложения,
-    // но пока мы не реализовали API авторизации, страницы будут показывать Loading....
-    status: 'checking',
+  // Это правильное поведение для полноценного приложения,
+  // но пока мы не реализовали API авторизации, страницы будут показывать Loading....
+  status: 'checking',
 
-    setStatus: (status) => set({ status }),
+  setStatus: (status) => set({ status }),
 }));

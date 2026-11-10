@@ -43,22 +43,16 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuthSession } from '@/core/auth/auth-session';
 
 export function AuthGuard() {
-    const { status } = useAuthSession();
-    const location = useLocation();
+  const { status } = useAuthSession();
+  const location = useLocation();
 
-    if (status === 'checking') {
-        return <div>Loading...</div>;
-    }
+  if (status === 'checking') {
+    return <div>Loading...</div>;
+  }
 
-    if (status === 'unauthenticated') {
-        return (
-            <Navigate
-                to="/login"
-                replace
-                state={{ from: location }}
-            />
-        );
-    }
+  if (status === 'unauthenticated') {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
 
-    return <Outlet />;
+  return <Outlet />;
 }

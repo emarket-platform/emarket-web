@@ -1,6 +1,6 @@
 export interface ApiError {
-    status: number;
-    code: string;
-    message: string;
-    timestamp?: string;
+  status: number;
+  code: string;
+  message: string;
+  timestamp?: string;
 }

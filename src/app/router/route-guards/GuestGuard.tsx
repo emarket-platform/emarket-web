@@ -28,15 +28,15 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 import { useAuthSession } from '@/core/auth/auth-session';
 export function GuestGuard() {
-    const { status } = useAuthSession();
+  const { status } = useAuthSession();
 
-    if (status === 'checking') {
-        return <div>Loading...</div>;
-    }
+  if (status === 'checking') {
+    return <div>Loading...</div>;
+  }
 
-    if (status === 'authenticated') {
-        return <Navigate to="/profile" replace />;
-    }
+  if (status === 'authenticated') {
+    return <Navigate to="/profile" replace />;
+  }
 
-    return <Outlet />;
+  return <Outlet />;
 }

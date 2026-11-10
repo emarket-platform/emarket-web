@@ -1,3 +1,3 @@
 export function PreferencesPage() {
-    return <h1>Preferences</h1>;
+  return <h1>Preferences</h1>;
 }
