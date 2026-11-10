@@ -1,5 +1,6 @@
 // Предполагается, что страницы в соответствующих feature-модулях экспортируются через их index.ts.
 import { lazy, Suspense } from 'react';
+import type { ReactNode } from 'react';
 import type { RouteObject } from 'react-router-dom';
 
 import { AuthGuard } from './route-guards/AuthGuard';
@@ -81,7 +82,7 @@ function PageLoader() {
   return <div>Loading page...</div>;
 }
 
-function loadPage(element: React.ReactNode) {
+function loadPage(element: ReactNode): ReactNode {
   return <Suspense fallback={<PageLoader />}>{element}</Suspense>;
 }
 
