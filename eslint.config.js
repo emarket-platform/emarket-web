@@ -61,6 +61,16 @@ export default tseslint.config(
     },
   },
 
+  // Router configuration is not a React component module.
+  // It may export route objects and lazy-loaded components together.
+  {
+    files: ['src/app/router/**/*.tsx'],
+
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+
   // Prettier takes care of formatting
   prettier,
 );

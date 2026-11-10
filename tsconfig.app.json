@@ -16,10 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Алиасы путей */
-    "baseUrl": ".",
+    /* Path aliases */
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
 
     /* Linting */
