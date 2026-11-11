@@ -1,6 +1,7 @@
-// App.tsx не содержит конфигурации маршрутов. Он только подключает маршрутизатор
-import { AppRouter } from './router';
+import { RouterProvider } from "react-router/dom";
+
+import { router } from "./router";
 
 export function App() {
-  return <AppRouter />;
+  return <RouterProvider router={router} />;
 }

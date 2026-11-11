@@ -1,10 +1,18 @@
-// Отвечает за создание экземпляра маршрутизатора и его передачу React-приложению
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from "react-router";
+import { WelcomePage } from "@/pages/welcome";
 
-import { routes } from './routes';
-
-const router = createBrowserRouter(routes);
-
-export function AppRouter() {
-  return <RouterProvider router={router} />;
-}
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <WelcomePage />,
+  },
+  {
+    path: "*",
+    element: (
+      <main>
+        <h1>404 — Page not found</h1>
+        <a href="/">Back to home</a>
+      </main>
+    ),
+  },
+]);
