@@ -1,11 +1,11 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from "react";
+import { QueryProvider } from "./QueryProvider";
+import { ThemeProvider } from "./ThemeProvider";
 
-import { QueryProvider } from './QueryProvider';
-
-interface Props {
-  children: ReactNode;
-}
-
-export function AppProviders({ children }: Props) {
-  return <QueryProvider>{children}</QueryProvider>;
+export function AppProviders({ children }: PropsWithChildren) {
+  return (
+    <QueryProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </QueryProvider>
+  );
 }
