@@ -6,6 +6,8 @@ Git repo: https://github.com/emarket-platform/emarket-web
 
 Git Issues: https://github.com/emarket-platform/emarket-web/issues
 
+Documentation: https://github.com/emarket-platform/emarket-docs
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
