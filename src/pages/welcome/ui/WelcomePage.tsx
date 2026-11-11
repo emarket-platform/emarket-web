@@ -1,7 +1,16 @@
+import { Header } from "@/widgets/header";
+import { HeroSection } from "@/widgets/hero-section";
+
+import styles from "./WelcomePage.module.css";
+
 export function WelcomePage() {
   return (
-    <main>
-      <h1>Welcome to eMarket</h1>
-    </main>
+    <div className={styles.page}>
+      <Header />
+
+      <main>
+        <HeroSection />
+      </main>
+    </div>
   );
 }

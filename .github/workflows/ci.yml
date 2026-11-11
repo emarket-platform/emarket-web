@@ -1,6 +1,7 @@
 # CI ничего не исправляет автоматически.
 # Он только проверяет, что разработчик уже привёл код в соответствие с правилами.
 # Pull Request должен завершаться ошибкой, если форматирование, ESLint, TypeScript, тесты или сборка не проходят.
+
 name: Frontend CI
 
 on:
@@ -13,6 +14,10 @@ on:
     branches:
       - main
       - develop
+    types:
+      - opened
+      - synchronize
+      - reopened
 
   workflow_dispatch:
 
@@ -26,7 +31,6 @@ concurrency:
 jobs:
   quality:
     name: Code Quality
-
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -57,3 +61,31 @@ jobs:
 
       - name: Production build
         run: npm run build
+
+  commitlint:
+    name: Commit Message Validation
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate commit messages
+        run: |
+          npx commitlint \
+            --from "${{ github.event.pull_request.base.sha }}" \
+            --to "${{ github.event.pull_request.head.sha }}" \
+            --verbose

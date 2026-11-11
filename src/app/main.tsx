@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "@/shared/lib/i18n";
 
 import { App } from "./App";
 
