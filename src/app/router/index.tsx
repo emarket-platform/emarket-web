@@ -1,18 +1,23 @@
-import { createBrowserRouter } from "react-router";
-import { WelcomePage } from "@/pages/welcome";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+
+import { LoginPage } from "@/pages/login";
+import { ForgotPasswordPage } from "@/pages/forgot-password";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <WelcomePage />,
+    element: <Navigate to="/login" replace />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordPage />,
   },
   {
     path: "*",
-    element: (
-      <main>
-        <h1>404 — Page not found</h1>
-        <a href="/">Back to home</a>
-      </main>
-    ),
+    element: <Navigate to="/login" replace />,
   },
 ]);
