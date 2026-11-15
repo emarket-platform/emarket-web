@@ -28,7 +28,6 @@ export function ForgotPasswordForm() {
       await mutation.mutateAsync(values);
       setSubmitted(true);
     } catch {
-      // Do not reveal whether an account exists.
       setSubmitted(true);
     }
   };
@@ -51,15 +50,33 @@ export function ForgotPasswordForm() {
       <div className={styles.field}>
         <label htmlFor="forgot-email">Email</label>
 
-        <input
-          id="forgot-email"
-          type="email"
-          placeholder="your@email.com"
-          autoComplete="email"
-          aria-invalid={Boolean(errors.email)}
-          disabled={mutation.isPending}
-          {...register("email")}
-        />
+        <div className={styles.inputWrapper}>
+          <span className={styles.icon}>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </span>
+
+          <input
+            id="forgot-email"
+            type="email"
+            placeholder="Enter your email address"
+            autoComplete="email"
+            aria-invalid={Boolean(errors.email)}
+            disabled={mutation.isPending}
+            {...register("email")}
+          />
+        </div>
 
         {errors.email && (
           <span className={styles.error}>{errors.email.message}</span>
@@ -73,10 +90,12 @@ export function ForgotPasswordForm() {
       )}
 
       <button type="submit" disabled={mutation.isPending}>
-        {mutation.isPending ? "Sending..." : "Send reset instructions"}
+        {mutation.isPending ? "Sending..." : "Reset password"}
       </button>
 
-      <Link to="/login">Back to sign in</Link>
+      <div className={styles.backLink}>
+        <Link to="/login">Back to sign in</Link>
+      </div>
     </form>
   );
 }
