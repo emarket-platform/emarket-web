@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Button } from "@/shared/ui/button";
+import { Label } from "@/shared/ui/label";
+import { Link } from "@/shared/ui/link";
 
 import { useForgotPasswordMutation } from "../api/forgot-password.mutation";
 import {
@@ -48,7 +50,7 @@ export function ForgotPasswordForm() {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className={styles.field}>
-        <label htmlFor="forgot-email">Email</label>
+        <Label htmlFor="forgot-email">Email</Label>
 
         <div className={styles.inputWrapper}>
           <span className={styles.icon}>
@@ -89,13 +91,11 @@ export function ForgotPasswordForm() {
         </p>
       )}
 
-      <button type="submit" disabled={mutation.isPending}>
+      <Button type="submit" disabled={mutation.isPending}>
         {mutation.isPending ? "Sending..." : "Reset password"}
-      </button>
+      </Button>
 
-      <div className={styles.backLink}>
-        <Link to="/login">Back to sign in</Link>
-      </div>
+      <Link to="/login">Back to sign in</Link>
     </form>
   );
 }

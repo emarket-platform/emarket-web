@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Label } from "@/shared/ui/label";
+import { Button } from "@/shared/ui/button";
+import { Link } from "@/shared/ui/link";
 
 import { useLoginMutation } from "../api/login.mutation";
 import { loginSchema, type LoginFormValues } from "../model/login.schema";
@@ -43,9 +46,9 @@ export function LoginForm() {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className={styles.field}>
-        <label htmlFor="email">
+        <Label htmlFor="email">
           Email <span className={styles.required}>*</span>
-        </label>
+        </Label>
 
         <input
           id="email"
@@ -67,7 +70,7 @@ export function LoginForm() {
 
       <div className={styles.field}>
         <div className={styles.passwordLabel}>
-          <label htmlFor="password">Password</label>
+          <Label htmlFor="password">Password</Label>
 
           <Link to="/forgot-password">Forgot password?</Link>
         </div>
@@ -108,13 +111,9 @@ export function LoginForm() {
         </div>
       )}
 
-      <button
-        type="submit"
-        className={styles.submitButton}
-        disabled={loginMutation.isPending}
-      >
+      <Button type="submit" disabled={loginMutation.isPending}>
         {loginMutation.isPending ? "Signing in..." : "Sign in"}
-      </button>
+      </Button>
 
       <div className={styles.separator}>
         <span />
